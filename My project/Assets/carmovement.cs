@@ -6,10 +6,11 @@ public class carmovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float speed;
     //private Rigidbody rb;
-    enum State { Start, Race, Finish}
+    enum State { Start, Race,Racing, Finish}
     State state = State.Start;
     public bool start = false;
     private float timer = 3f;
+    public float randomFloat2 = 0;
 
     void Start()
     {
@@ -42,10 +43,24 @@ public class carmovement : MonoBehaviour
                 break;
             case State.Race:
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
+                if (transform.position.x >= 40f)
+                {
+                    state = State.Racing;
+
+                }
+                break;
+
+            case State.Racing:
+                
+                if (randomFloat2 == 0)
+                randomFloat2 = Random.Range(8.0f, 10.0f);
+                speed = randomFloat2;
+                transform.Translate(Vector3.right * speed * Time.deltaTime);
+                Debug.Log(speed);
                 if (transform.position.x >= 80f)
                 {
                     state = State.Finish;
-                    
+
                 }
                 break;
 
@@ -58,6 +73,8 @@ public class carmovement : MonoBehaviour
 
         }
     }
+
+    
 
     void Startt()
     {
