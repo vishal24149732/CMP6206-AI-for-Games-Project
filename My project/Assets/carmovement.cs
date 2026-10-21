@@ -68,8 +68,6 @@ public class carmovement : MonoBehaviour
                 Debug.Log("Race has finished");
                 speed = 0;
                 break;
-                    
-
 
         }
     }
