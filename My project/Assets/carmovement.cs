@@ -56,7 +56,7 @@ public class carmovement : MonoBehaviour
                 randomFloat2 = Random.Range(8.0f, 10.0f);
                 speed = randomFloat2;
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
-                Debug.Log(speed);
+                //Debug.Log(speed);
                 if (transform.position.x >= 80f)
                 {
                     state = State.Finish;
@@ -65,7 +65,7 @@ public class carmovement : MonoBehaviour
                 break;
 
             case State.Finish:
-                Debug.Log("Race has finished");
+                //Debug.Log("Race has finished");
                 speed = 0;
                 break;
 
