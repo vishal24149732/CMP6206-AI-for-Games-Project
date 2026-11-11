@@ -26,10 +26,10 @@ public partial class MovementAction : Action
         progress += (Speed / Spline.Value.CalculateLength()) * Time.deltaTime;
         progress %= 1f;
         Car.Value.transform.position = Spline.Value.EvaluatePosition(progress);
-        //if (Car.Value.transform.position.x >= 80f)
-        //{
-        //    return Status.Success;
-        //}
+        if (Car.Value.transform.position.x >= 80f)
+        {
+            return Status.Success;
+        }
         return Status.Success;
 
     }

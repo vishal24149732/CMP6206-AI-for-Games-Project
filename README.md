@@ -4,13 +4,18 @@
 
 1. Name of your project - Car Racing Manager
 2. Description/overview - What AI features will the project have/showcase and in what way will they be realised.  For example, for FSM what type of agents will be created using FSM such as enemies, companion, allies, etc.
- - This simulation is going to use like different types of agents like FSM , behaviour tree .. etc which will be assigned to different cars .
+ - This simulation is going to use like different types of agents like FSM , behaviour tree , Goal oriented Action Planning.. etc which will be assigned to different cars .
 3. Target game engine - Note: you should add an appropriate .gitignore file for the game engine you are using so you don't end up uploading extraneous files that increase the size of the repo.  There are .gitignore files for Unity and Unreal, and other game engines, available from https://github.com/github/gitignore.  For C++ using Visual Studio use the Visual Studio .gitignore but note that it needs some modification as .lib files necessary for building a C++ project are ignored by default.           
-- Unity
+- Unity. And it is continuosly committed in github every week.
 4. Research - background to the project such as inspiration and what you need to find out to achieve the AI features.  If real behaviour is to be implemented then examples such as flocking or using Artificial Life (ALife) approaches such as cellular automata should be used to support your project and provide a means of comparison of how successful your implementation is.
 - Inspiration is from famous sports simulation games like football manager simulation and F1 manager games which revolves around Automated simulations instead of user controlling the cars. I intend to automate the whole race with adding multiple behavious like flocking (other cars following the race leader at some point) , pathfinding , steering behaviour and more .. 
 5. Methodology/planning - what approach are you going to take to develop the project implementation successfully.  For example, use of Trello or KANBAN.  Ideally, you have an overall plan for project development showing the major milestones to be achieved, e.g. setup up scene, implement AI methods, testing (for Quality Assurance), etc.
+2 AI agents are implemented and working on 3rd AI agent . Used spplines with a custum script.
 6. Progress documentation - regular commits/updates to the project need to be documented with a brief overview and reflection on what has been achieved.  For example, what feature(s) have been added?  Were they achieved in the time allowed?  What problems were there or remain?  What has been learnt and what would you do differently if you had to repeat the project?
-- added a basic racing feature with a basic finite state machine . 2 cars races in single line and has 3 states - Start , race , finish . 
+- added a basic racing feature with a basic finite state machine . 2 cars races in single line and has 3 states - Start , race , finish .
+- added a behaviour tree with spline movement script with it.
+- Added spline movement with getting the position of the spline and moving the car by the script .
 7. References to sources used.  This must include graphics resources used such as models and textures, and code resources (websites, book, AI). 
- - car - https://sketchfab.com/3d-models/generic-f1-1991-car-cd6b956866ef48e1b32101100cb63da1 
+ - car - https://sketchfab.com/3d-models/generic-f1-1991-car-cd6b956866ef48e1b32101100cb63da1
+ - Splines - https://docs.unity3d.com/Packages/com.unity.splines@2.4/manual/index.html
+ - Behaviour tree - https://docs.unity3d.com/Packages/com.unity.splines@2.4/manual/index.html 
