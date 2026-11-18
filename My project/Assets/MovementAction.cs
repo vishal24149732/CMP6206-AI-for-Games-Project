@@ -7,16 +7,17 @@ using Unity.Properties;
 using Random = UnityEngine.Random;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "Movement", story: "[Car] moving in [spline] at a [speed]", category: "Action", id: "c8dd251a35794f8010e7ea02e9ed9b88")]
+[NodeDescription(name: "Movement", story: "[Car] moving in [spline] at a [speed] upto [finish]", category: "Action", id: "c8dd251a35794f8010e7ea02e9ed9b88")]
 public partial class MovementAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Car;
     [SerializeReference] public BlackboardVariable<SplineContainer> Spline;
     [SerializeReference] public BlackboardVariable<float> Speed;
+    [SerializeReference] public BlackboardVariable<bool> Finish;
     public float progress = 0f;
     protected override Status OnStart()
     {
-        //Speed.Value = Random.Range(8.0f, 10.0f);
+        Speed.Value = Random.Range(8.0f, 10.0f);
         
         return Status.Running;
     }
@@ -28,6 +29,7 @@ public partial class MovementAction : Action
         Car.Value.transform.position = Spline.Value.EvaluatePosition(progress);
         if (Car.Value.transform.position.x >= 80f)
         {
+            Finish.Value = true;
             return Status.Success;
         }
         return Status.Success;
@@ -36,6 +38,7 @@ public partial class MovementAction : Action
 
     protected override void OnEnd()
     {
+        Speed.Value = 0;
     }
 }
 
