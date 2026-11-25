@@ -13,6 +13,7 @@ public class carmovement1 : MonoBehaviour
     private float timer = 3f;
     public float randomFloat2 = 0;
     public SplineContainer spline;
+    public SplineContainer spline2;
     public float progress = 0f;
     void Start()
     {
@@ -26,11 +27,6 @@ public class carmovement1 : MonoBehaviour
     void Update()
     {
         
-        //if(transform.position.x < 80f)
-        //{
-        //    transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-        //}
         switch (state)
         {
             case State.Start:
@@ -44,11 +40,9 @@ public class carmovement1 : MonoBehaviour
                 }
                 break;
             case State.Race:
-                //transform.Translate(Vector3.right * speed * Time.deltaTime);
+               
                 Debug.Log(speed);
-                progress += (speed / spline.CalculateLength()) * Time.deltaTime;
-                progress %= 1f;
-                transform.position = spline.EvaluatePosition(progress);
+                Move(speed);
                 if (transform.position.x >= 40f)
                 {
                     state = State.Racing;
@@ -61,10 +55,8 @@ public class carmovement1 : MonoBehaviour
                 if (randomFloat2 == 0)
                 randomFloat2 = Random.Range(8.0f, 10.0f);
                 speed = randomFloat2;
-                //transform.Translate(Vector3.right * speed * Time.deltaTime);
-                progress += (speed / spline.CalculateLength()) * Time.deltaTime;
-                progress %= 1f;
-                transform.position = spline.EvaluatePosition(progress);
+                SwitchSpline(spline2);
+                Move(speed);
                 Debug.Log(speed);
                 if (transform.position.x >= 80f)
                 {
@@ -81,6 +73,17 @@ public class carmovement1 : MonoBehaviour
         }
     }
 
+    void Move(float speed)
+    {
+        progress += (speed / spline.CalculateLength()) * Time.deltaTime;
+        progress %= 1f;
+        transform.position = spline.EvaluatePosition(progress);
+    }
+
+    void SwitchSpline(SplineContainer NewSpline)
+    {
+        spline = NewSpline;
+    }
     
 
     void Startt()
